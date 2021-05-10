@@ -1,0 +1,15 @@
+"use strict"
+
+var express = require("express");
+var bodyParser = require("body-parser");
+var empresaRoutes = require("./routes/empresa.route");
+var empleadoRoutes = require("./routes/empleado.route");
+
+var app = express();
+
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
+app.use("/v1",empresaRoutes);
+app.use("/v1",empleadoRoutes);
+
+module.exports = app;
